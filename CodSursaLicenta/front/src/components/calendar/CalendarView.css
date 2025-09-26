@@ -1,0 +1,346 @@
+.calendar-view {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Week View */
+.week-view {
+  position: relative;
+}
+
+.time-info {
+  font-size: 12px;
+  color: #252525;
+  margin-bottom: 16px;
+}
+
+.time-grid {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+/* 
+.time-labels {
+  width: 80px;
+  flex-shrink: 0;
+} */
+.time-labels,
+.time-header-spacer {
+  width: 48px; /* sau chiar 40px dacă vrei și mai compact */
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .time-labels,
+  .time-header-spacer {
+    width: 32px;
+  }
+}
+
+.time-label {
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.days-grid {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.day-column {
+  flex: 1;
+  position: relative;
+  border-left: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+}
+
+.day-header.today {
+  background-color: #f8f9fa;
+}
+
+.day-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+}
+
+.day-number {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.day-number.current-day {
+  background-color: #9B7EBD;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-events {
+  position: relative;
+  /* height: 100%; */
+  height: 1440px; /* 24 ore * 60px */
+  overflow: visible;
+}
+
+.hour-cell {
+  height: 60px;
+  border-bottom: 1px solid #f0f0f0;
+  box-sizing: border-box;
+}
+
+.hour-cells {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.event-item {
+  position: absolute;
+  border-radius: 6px;
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size: 12px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin: 0 2px;
+}
+
+.event-title {
+  font-weight: 500;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-time {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Month View */
+.month-view {
+  min-height: 600px;
+}
+
+.month-header {
+  margin-bottom: 16px;
+}
+
+.month-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.month-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.month-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 500;
+  color: #666;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.month-weekday {
+  padding: 8px;
+}
+
+.month-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 1px;
+  background-color: #f0f0f0;
+}
+
+.month-day {
+  background-color: #fff;
+  padding: 8px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.month-day:hover,
+.day-column:hover {
+  background-color: #f8f9fa;
+}
+
+.month-day.today {
+  background-color: #f8f9fa;
+}
+
+.month-day.other-month {
+  color: #ccc;
+  background-color: #fafafa;
+}
+
+.month-day-number {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.month-day-number.current-day {
+  background-color: #9B7EBD;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+}
+
+/* .month-day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+} */
+.month-day-events {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  max-height: 60px; /* sau cât vrei */
+  
+}
+@media (max-width: 768px) {
+  .month-day-events {
+    max-width: 75px;
+  }
+}
+
+@media (max-width: 480px) {
+  .month-day-events {
+    max-width: 30px;
+  }
+}
+.month-event {
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+}
+
+.month-more-events {
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Adăugăm stiluri pentru ziua selectată în month view */
+.month-day.selected {
+  background-color: #f0f0f0;
+}
+
+/* Stiluri pentru week view cu header separat */
+.week-days-header {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+}
+
+/* .time-header-spacer {
+  width: 80px;
+  flex-shrink: 0;
+} */
+
+.week-day-header {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.week-day-header.today {
+  background-color: #f8f9fa;
+}
+
+.week-day-header.selected {
+  background-color: #f0f0f0;
+}
+
+.day-column.selected {
+  background: #f3f3f3; /* sau orice nuanță de gri vrei */
+}
+
+/* Responsive pentru task-urile din view month */
+@media (max-width: 768px) {
+  .month-day {
+    padding: 4px;
+    min-height: 60px;
+  }
+  .month-event {
+    font-size: 10px;
+    padding: 1px 2px;
+  }
+  .month-day-number {
+    font-size: 13px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .month-day {
+    padding: 2px;
+    min-height: 40px;
+  }
+  .month-event {
+    font-size: 9px;
+    padding: 1px 1px;
+  }
+  .month-day-number {
+    font-size: 11px;
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,48 @@
+# will extend all properties from application.yml and override twhat i want
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:1234/daily_planner
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: gabry.balan05@gmail.com
+    password: #
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+application: # extra properties for jwts token (security-> secret key)
+  security:
+    jwt:
+      secret-key: jky4er0gjiFTk+Uqp6pqFBV+m/X3nVDAvrv0r6Gfi4B8eCbTghRYB8Mt6tvf1fscg7YDGsAQAM0jTLdAOdo6qkmsoxwpczNSGec5AdKbV9DzeVFlo81rQAyzfVMmtj8gRa3A/gBOsgp2Rbjzcyz3LpLJCQFZkK2v0Kd/YSiWx3/du4BUTNQ0Xrv0va5a49XzAB2LtaP+sF3RjPRCYs+cWU2uFYeJPhbw1BTeu2+leAnc1b1vnq9TQ1+4sXMFpwS+kVup4yS9HZnnTeXbrlKW0nqWhP5GcHgdPjzjdG/rbvlP0xHa/1N0ngaKO+MnefSEPwnWPT0xNj5Vz+2Cuf600soxdrW/XorogPEOn0SMg4U=
+
+      expiration: 86400000
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activation-account
+  ai:
+    groq:
+      api-key:  # cheia ta de la Groq
+      model: llama3-70b-8192 
+
+server:
+  port: 8088

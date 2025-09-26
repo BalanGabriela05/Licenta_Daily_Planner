@@ -1,0 +1,457 @@
+.my-calendars-page {
+  padding: 24px;
+  height: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.shared-header {
+  margin-top: 40px;
+}
+
+.page-header h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.create-calendar-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #9b7ebd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-calendar-button:hover {
+  background-color: #5a4bd1;
+}
+
+.calendars-section {
+  margin-bottom: 30px;
+}
+
+.calendar-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.calendar-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.calendar-color-and-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.calendar-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.calendar-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background-color: #9b7ebd;
+  color: white;
+}
+
+.calendar-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+}
+
+.calendar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.calendar-action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+
+.calendar-action-button.edit {
+  color: #333;
+}
+
+.calendar-action-button.edit:hover {
+  background-color: #f0f0f0;
+}
+
+.calendar-action-button.delete {
+  color: #e74c3c;
+}
+
+.calendar-action-button.delete:hover {
+  background-color: #feeaea;
+}
+
+.calendar-action-button.view {
+  color: #333;
+}
+
+.calendar-action-button.view:hover {
+  background-color: #f0f0f0;
+}
+
+.calendar-action-button.share {
+  color: #9b7ebd;
+}
+
+.calendar-action-button.share:hover {
+  background-color: #f8f5ff;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-container {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.calendar-form {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #9b7ebd;
+}
+
+.color-options {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 2px solid transparent;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.color-option.selected {
+  border-color: #333;
+  transform: scale(1.1);
+}
+
+.friend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.friend-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.friend-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #9b7ebd;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.friend-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.permission-select {
+  padding: 6px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.friend-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.friend-add-button {
+  padding: 6px 12px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.friend-add-button:hover {
+  background-color: #e0e0e0;
+}
+
+.friend-add-button.added {
+  background-color: #9b7ebd;
+  color: white;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancel-button {
+  padding: 10px 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button {
+  padding: 10px 16px;
+  background-color: #9b7ebd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #5a4bd1;
+}
+
+/* Share Modal Specific Styles */
+.share-calendar-info {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.calendar-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.calendar-preview h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.share-description {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.friend-add-button.update {
+  background-color: #AAB99A;
+  color: #222; /* sau ce culoare vrei pentru text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .calendar-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-container {
+    width: 95%;
+    margin: 20px;
+  }
+
+  .calendar-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .calendar-action-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+
+}

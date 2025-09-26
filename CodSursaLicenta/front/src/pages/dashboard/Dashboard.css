@@ -1,0 +1,263 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.greeting-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.greeting-section h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.greeting-message {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.calendar-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.navigation-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+}
+
+.today-button {
+  font-weight: 500;
+}
+
+.view-controls {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.view-button {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-button:hover {
+  background-color: #f0f0f0;
+}
+
+.view-button.active {
+  background-color: #9b7ebd;
+  color: white;
+}
+
+.add-task-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #9b7ebd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-task-button:hover {
+  background-color: #5a4bd1;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.tasks-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+/*  Current Calendar Info Styles */
+.current-calendar-info {
+  margin-top: 12px;
+}
+
+.calendar-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: rgba(155, 126, 189, 0.1);
+  border: 1px solid rgba(155, 126, 189, 0.2);
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.calendar-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.calendar-name-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-icon {
+  color: #9b7ebd;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.calendar-owner-text {
+  margin-left: 8px;
+  color: #666;
+  font-size: 13px;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .greeting-section {
+    width: 100%;
+  }
+
+  .greeting-section h1 {
+    font-size: 24px;
+  }
+
+  .calendar-controls {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navigation-controls {
+    order: 1;
+  }
+
+  .view-controls {
+    order: 2;
+  }
+
+  .add-task-button {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .calendar-indicator {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 12px;
+  }
+
+  .calendar-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navigation-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .view-controls {
+    width: 100%;
+  }
+
+  .view-button {
+    flex: 1;
+    text-align: center;
+  }
+
+  .tasks-section {
+    padding: 16px;
+  }
+}
